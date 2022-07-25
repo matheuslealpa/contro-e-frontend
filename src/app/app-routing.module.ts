@@ -49,6 +49,10 @@ const routes: Routes = [
     loadChildren: () => import('./views/curso/curso-page.module').then(m => m.CursoPageModule),
   },
   {
+    path: 'evento',
+    loadChildren: () => import('./views/evento/evento-pages.module').then(m => m.EventoPagesModule)
+  },
+  {
     path: '**',
     redirectTo: 'home'
   },

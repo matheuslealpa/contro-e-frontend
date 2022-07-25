@@ -2,7 +2,7 @@ import {Component, enableProdMode, NgModule} from '@angular/core';
 import {BrowserModule} from "@angular/platform-browser";
 import {DxSelectBoxModule, DxTemplateModule} from "devextreme-angular";
 import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
-import {Curso, Service} from "../../../domain/curso";
+import {Evento, Service} from "../../../domain/evento";
 import {DxListModule} from "devextreme-angular/ui/list";
 
 if (!/localhost/.test(document.location.host)) {
@@ -10,17 +10,17 @@ if (!/localhost/.test(document.location.host)) {
 }
 
 @Component({
-  selector: 'app-curso-list',
-  templateUrl: './curso-list.component.html',
+  selector: 'app-evento-list',
+  templateUrl: './evento-list.component.html',
   providers:[Service],
-  styleUrls: ['./curso-list.component.css'],
   preserveWhitespaces: true,
+  styleUrls: ['./evento-list.component.css'],
 })
-export class CursoListComponent {
-  cursos: Curso[];
+export class EventoListComponent {
+  eventos: Evento[];
 
   constructor(service: Service) {
-    this.cursos = service.getCurso();
+    this.eventos = service.getEvento();
   }
 }
 
@@ -32,8 +32,8 @@ export class CursoListComponent {
     DxListModule,
     DxTemplateModule,
   ],
-  declarations: [CursoListComponent],
-  bootstrap: [CursoListComponent],
+  declarations: [EventoListComponent],
+  bootstrap: [EventoListComponent],
 })
 export class AppModule { }
 

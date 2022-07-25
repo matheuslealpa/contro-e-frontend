@@ -19,12 +19,16 @@ export const navigation = [
     ]
   },
   {
-    text: 'Config',
+    text: 'Configuações',
     icon: 'folder',
     items: [
       {
         text: 'Cursos',
         path: '/curso'
-      }]
+      },{
+        text: 'Evento',
+        path: '/evento'
+      },
+      ]
   },
 ];

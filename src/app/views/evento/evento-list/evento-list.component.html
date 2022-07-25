@@ -1,5 +1,5 @@
 <div class="options">
-  <div class="caption">Pesquisar cursos</div>
+  <div class="caption">Pesquisar eventos</div>
   <div class="option">
     <span>Modo de pesquisa</span>
     <dx-select-box
@@ -13,13 +13,13 @@
 <div class="list-container">
   <dx-list
     #list
-    [dataSource]="cursos"
+    [dataSource]="eventos"
     [height]="550"
     [searchEnabled]="true"
     searchExpr="nome"
     searchMode="contains">
     <div *dxTemplate="let data of 'item'">
-      <div>{{ data.nome}}</div>
+      <div>{{ data.nomeLocal}}</div>
     </div>
   </dx-list>
 </div>
