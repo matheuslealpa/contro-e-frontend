@@ -1,27 +1,13 @@
-<div class="options">
-  <div class="caption">Pesquisar cursos</div>
-  <div class="option">
-    <span>Modo de pesquisa</span>
-    <dx-select-box
-      #searchMode
-      [items]="['contains', 'startsWith', 'equals']"
-      [(value)]="list.searchMode"
-    >
-    </dx-select-box>
-  </div>
-</div>
-<div class="list-container">
-  <dx-list
-    #list
-    [dataSource]="cursos"
-    [height]="550"
-    [searchEnabled]="true"
-    searchExpr="nome"
-    searchMode="contains">
-    <div *dxTemplate="let data of 'item'">
-      <div>{{ data.nome}}</div>
-    </div>
-  </dx-list>
-</div>
+<dx-data-grid
+  [dataSource]="cursos"
+  keyExpr="id">
+  [allowColumnReordering]="true">
+  <dxo-search-panel [visible]="true"></dxo-search-panel>
+  <dxi-column [allowSearch]="true" dataField="nome"></dxi-column>
+  <dxi-column dataField="" [width]="100"></dxi-column>
+  <dxi-column dataField="" [width]="100"></dxi-column>
+</dx-data-grid>
+
+
 
 

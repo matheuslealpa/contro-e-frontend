@@ -7,7 +7,7 @@ import { EventoPagesComponent } from './evento-pages.component';
 
 @NgModule({
   declarations: [
-    EventoPagesComponent
+    EventoPagesComponent,
 
   ],
   imports: [
