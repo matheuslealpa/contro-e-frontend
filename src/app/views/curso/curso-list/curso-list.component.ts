@@ -1,7 +1,7 @@
 import {Component, NgModule} from '@angular/core';
-import {Curso, Service} from "../../../domain/curso";
 import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
 import {DevExtremeModule, DxDataGridModule} from "devextreme-angular";
+import {Curso, Service} from "../../../domain/curso";
 
 @Component({
   selector: 'app-curso-list',

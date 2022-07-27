@@ -2,7 +2,7 @@ import {Endereco} from "./endereco";
 import {Colando} from "./colando";
 import {Injectable} from "@angular/core";
 
-export class Evento {
+export class Curso {
   id?: number;
   nomeLocal?: string;
   dataEvento?: string;
@@ -10,7 +10,7 @@ export class Evento {
   colandos?: Colando[];
 }
 
-const eventos: Evento[] = [
+const eventos: Curso[] = [
   {
     id: 1,
     nomeLocal: "Hangar",
@@ -121,7 +121,7 @@ const eventos: Evento[] = [
   providedIn: 'root'
 })
 export class Service {
-  getCurso(): Evento[] {
+  getEvento(): Curso[] {
     return eventos;
   }
 }

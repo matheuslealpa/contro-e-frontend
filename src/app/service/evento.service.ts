@@ -1,6 +1,6 @@
 import {Injectable, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Evento} from "../domain/evento";
+import {Curso} from "../domain/evento";
 
 
 @Injectable({
@@ -18,21 +18,21 @@ export class EventoService implements OnInit{
   }
 
   findAll() {
-    this.httpClient.get<Evento>(`${this.PATH}`)
+    this.httpClient.get<Curso>(`${this.PATH}`)
       .subscribe(values => console.log(values));
   }
 
-  save(resource: Evento) {
+  save(resource: Curso) {
     return resource.id ? this.update(resource.id, resource) : this.insert(resource);
   }
 
-  insert(resource: Evento) {
-    this.httpClient.post<Evento>(`${this.PATH}`, resource)
+  insert(resource: Curso) {
+    this.httpClient.post<Curso>(`${this.PATH}`, resource)
       .subscribe(values => console.log(values));
   }
 
-  update(id: number, resource: Evento) {
-    return this.httpClient.put<Evento>(`${this.PATH}/${id}`, resource)
+  update(id: number, resource: Curso) {
+    return this.httpClient.put<Curso>(`${this.PATH}/${id}`, resource)
       .subscribe(values => console.log(values));
   }
 

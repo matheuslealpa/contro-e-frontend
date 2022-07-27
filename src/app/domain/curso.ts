@@ -1,5 +1,4 @@
 import {Injectable} from "@angular/core";
-import {Evento} from "./evento";
 
 export class Curso{
   id?: number;

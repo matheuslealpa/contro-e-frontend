@@ -1,5 +1,5 @@
 import {Component, NgModule} from '@angular/core';
-import {Evento, Service} from "../../../domain/evento";
+import {Curso, Service} from "../../../domain/evento";
 import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
 import {DevExtremeModule, DxDataGridModule} from "devextreme-angular";
 
@@ -8,10 +8,10 @@ import {DevExtremeModule, DxDataGridModule} from "devextreme-angular";
   templateUrl: './evento-list.component.html',
 })
 export class EventoListComponent {
-  eventos: Evento[] = [];
+  eventos: Curso[] = [];
 
   constructor(service: Service) {
-    this.eventos = service.getCurso();
+    this.eventos = service.getEvento();
   }
 }
 

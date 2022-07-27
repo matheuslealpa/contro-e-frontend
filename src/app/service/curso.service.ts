@@ -1,39 +1,36 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Evento} from "../domain/evento";
+import {Curso} from "../domain/curso";
 
 @Injectable({
   providedIn: 'root'
 })
-export class CursoService implements OnInit{
+export class CursoService{
 
   PATH:string = '/server-api/api/curso';
 
   constructor(private httpClient:HttpClient) { }
 
-  ngOnInit(): void {
-  }
-
   findAll(){
-    this.httpClient.get<Evento>(this.PATH)
+    this.httpClient.get<Curso>(this.PATH)
       .subscribe(value => value.nome);
   }
 
   findById(id: number){
-    this.httpClient.get<Evento>(`${this.PATH}/${id}`);
+    this.httpClient.get<Curso>(`${this.PATH}/${id}`);
   }
 
-  save(resource: Evento){
+  save(resource: Curso){
     return resource.id ? this.update(resource.id, resource) : this.insert(resource);
   }
 
-  update(id: number, resource: Evento) {
-    return this.httpClient.put<Evento>(`${this.PATH}/${id}`, resource)
+  update(id: number, resource: Curso) {
+    return this.httpClient.put<Curso>(`${this.PATH}/${id}`, resource)
       .subscribe(values => console.log(values));
   }
 
-  insert(resource: Evento){
-    return this.httpClient.post<Evento>(`${this.PATH}`, resource).subscribe(values => values)
+  insert(resource: Curso){
+    return this.httpClient.post<Curso>(`${this.PATH}`, resource).subscribe(values => values)
   }
 
   delete(id: number){
@@ -41,3 +38,4 @@ export class CursoService implements OnInit{
       .subscribe(()=>console.log(`ID ${id} successfully deleted`))
   }
 }
+
