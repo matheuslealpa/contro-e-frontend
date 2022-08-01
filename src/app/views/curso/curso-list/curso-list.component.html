@@ -1,11 +1,19 @@
 <dx-data-grid
   [dataSource]="cursos"
-  keyExpr="id">
+  keyExpr="id"
   [allowColumnReordering]="true">
+
   <dxo-search-panel [visible]="true"></dxo-search-panel>
   <dxi-column [allowSearch]="true" dataField="nome"></dxi-column>
   <dxi-column dataField="" [width]="100"></dxi-column>
   <dxi-column dataField="" [width]="100"></dxi-column>
+  <dxo-toolbar>
+    <dxi-item location="rigth">
+      <div *dxTemplate>
+        <h2>Controle de Cursos</h2>
+      </div>
+    </dxi-item>
+  </dxo-toolbar>
 </dx-data-grid>
 
 
