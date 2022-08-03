@@ -1,43 +1,47 @@
-import {Injectable, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Curso} from "../domain/evento";
-
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpParams} from "@angular/common/http";
+import {Evento} from "../domain/evento";
+import {catchError, map, Observable, throwError} from "rxjs";
+import {Page} from "../shared/page";
 
 @Injectable({
   providedIn: 'root'
 })
-export class EventoService implements OnInit{
+export class EventoService {
 
   PATH = '/server-api/api/evento';
 
   constructor(private httpClient: HttpClient) {
   }
 
-  ngOnInit(): void {
 
+  public findAll(params: HttpParams): Observable<{data: Evento[]; totalCount: number | undefined }> {
+    return this.httpClient.get<Page<Evento>>(this.PATH, {params})
+      .pipe(
+        map((page: Page<Evento>) => ({
+          data: page.content,
+          totalCount: page.totalElements
+        })),
+        catchError(error => {
+          return throwError(new Error(error.message))
+        })
+      )
   }
 
-  findAll() {
-    this.httpClient.get<Curso>(`${this.PATH}`)
-      .subscribe(values => console.log(values));
-  }
-
-  save(resource: Curso) {
+  public save(resource: Evento) {
     return resource.id ? this.update(resource.id, resource) : this.insert(resource);
   }
 
-  insert(resource: Curso) {
-    this.httpClient.post<Curso>(`${this.PATH}`, resource)
+  public insert(resource: Evento) {
+    this.httpClient.post<Evento>(this.PATH, resource)
       .subscribe(values => console.log(values));
   }
 
-  update(id: number, resource: Curso) {
-    return this.httpClient.put<Curso>(`${this.PATH}/${id}`, resource)
-      .subscribe(values => console.log(values));
+  public update(id: number, resource: Evento) {
+    return this.httpClient.put<Evento>(`${this.PATH}/${id}`, resource);
   }
 
-  delete(id: number){
+  public delete(id: number) {
     return this.httpClient.delete(`${this.PATH}/${id}`)
-      .subscribe(()=>console.log(`ID ${id} successfully deleted`))
   }
 }

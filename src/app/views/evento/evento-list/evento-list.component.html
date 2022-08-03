@@ -1,4 +1,42 @@
 <dx-data-grid
+  id="gridContainer"
+  [dataSource]="dataSource"
+  [showBorders]="true"
+  [remoteOperations]="true"
+>
+  <dxo-sorting mode="multiple"></dxo-sorting>
+  <dxi-column dataField="" [width]="100">e</dxi-column>
+  <dxi-column dataField="" [width]="100">d</dxi-column>
+  <dxi-column dataField="nomeLocal" dataType="string"></dxi-column>
+  <dxi-column dataField="endereco" dataType=""></dxi-column>
+  <dxi-column dataField="dataEvento" dataType="datetime"></dxi-column>
+  <dxo-paging [pageSize]="12"></dxo-paging>
+  <dxo-pager
+    [showPageSizeSelector]="true"
+    [allowedPageSizes]="[8, 12, 20]"
+  ></dxo-pager>
+</dx-data-grid>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<dx-data-grid
   [dataSource]="eventos"
   keyExpr="id">
   [allowColumnReordering]="true">
@@ -6,9 +44,8 @@
   <dxi-column [allowSearch]="true" dataField="nomeLocal"></dxi-column>
   <dxi-column dataField="dataEvento" dataType="date"></dxi-column>
   <dxi-column dataField="endereco"></dxi-column>
-  <dxi-column dataField="" [width]="100"></dxi-column>
-  <dxi-column dataField="" [width]="100"></dxi-column>
-</dx-data-grid>
+
+</dx-data-grid>-->
 
 
 
