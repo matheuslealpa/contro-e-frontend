@@ -5,7 +5,6 @@ import {EventoPagesRoutingModule} from './evento-pages-routing.module';
 import {EventoPagesComponent} from './evento-pages.component';
 import {EventoListComponent} from "./evento-list/evento-list.component";
 import {DxDataGridModule} from "devextreme-angular";
-import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
