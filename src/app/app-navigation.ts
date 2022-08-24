@@ -25,10 +25,7 @@ export const navigation = [
       {
         text: 'Cursos',
         path: '/curso'
-      },{
-        text: 'Evento',
-        path: '/evento'
-      },
+      }
       ]
   },
 ];

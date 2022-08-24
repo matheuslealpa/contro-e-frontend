@@ -49,13 +49,6 @@ const routes: Routes = [
     loadChildren: () => import('./views/curso/curso-page.module').then(m => m.CursoPageModule),
   },
   {
-    path: 'evento',
-    loadChildren: () => import('./views/evento/evento-pages.module').then(m => m.EventoPagesModule)
-  },
-  {
-    path: 'endereco', loadChildren: () => import('./views/endereco/endereco-page.module').then(m => m.EnderecoPageModule)
-  },
-  {
     path: '**',
     redirectTo: 'home'
   },
