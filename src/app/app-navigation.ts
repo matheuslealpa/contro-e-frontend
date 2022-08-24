@@ -20,11 +20,11 @@ export const navigation = [
   },
   {
     text: 'Configuações',
-    icon: 'folder',
+    icon: 'preferences',
     items: [
       {
         text: 'Cursos',
-        path: '/curso'
+        path: '/cursos'
       }
       ]
   },

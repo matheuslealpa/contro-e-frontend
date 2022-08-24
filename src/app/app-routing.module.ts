@@ -45,7 +45,7 @@ const routes: Routes = [
     canActivate: [ AuthGuardService ]
   },
   {
-    path: 'curso',
+    path: 'cursos',
     loadChildren: () => import('./views/curso/curso-page.module').then(m => m.CursoPageModule),
   },
   {
