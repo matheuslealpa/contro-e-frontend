@@ -1,7 +1,7 @@
 export const navigation = [
   {
-    text: 'Home',
-    path: '/home',
+    text: 'Evento',
+    path: '/evento',
     icon: 'home'
   },
   {

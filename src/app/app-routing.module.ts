@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginFormComponent, ResetPasswordFormComponent, CreateAccountFormComponent, ChangePasswordFormComponent } from './shared/components';
 import { AuthGuardService } from './shared/services';
-import { HomeComponent } from './views/home/home.component';
-import { ProfileComponent } from './views/profile/profile.component';
-import { TasksComponent } from './views/tasks/tasks.component';
+import { HomeComponent } from './view/home/home.component';
+import { ProfileComponent } from './view/profile/profile.component';
+import { TasksComponent } from './view/tasks/tasks.component';
 import { DxDataGridModule, DxFormModule } from 'devextreme-angular';
 
 
@@ -45,8 +45,12 @@ const routes: Routes = [
     canActivate: [ AuthGuardService ]
   },
   {
-    path: 'cursos',
-    loadChildren: () => import('./views/curso/curso-page.module').then(m => m.CursoPageModule),
+    path: 'evento',
+    loadChildren: () => import('./view/evento/evento-page.module').then(m => m.EventoPageModule),
+  },
+  {
+    path: 'curso',
+    loadChildren: () => import('./view/curso/curso-page.module').then(m => m.CursoPageModule),
   },
   {
     path: '**',

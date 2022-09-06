@@ -1,42 +1,17 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Endereco} from "../domain/endereco";
+import {environment} from "../../environments/environment";
+import {StandardNgService} from "../@core/template/standard-ng-service";
 
 @Injectable({
-  providedIn: 'root'
+providedIn: 'root'
 })
-export class EnderecoService implements OnInit{
+export class EnderecoService extends StandardNgService {
 
-  PATH = '/server-api/api/endereco';
+    URL_API: string = `${environment.contextPath}/api/endereco`;
 
-  constructor(private httpClient: HttpClient) {
+    constructor(httpClient: HttpClient) {
+        super(httpClient);
+    }
 
-  }
-
-  ngOnInit(): void {
-  }
-
-  findAll() {
-    this.httpClient.get<Endereco>(`${this.PATH}`)
-      .subscribe(values => console.log(values));
-  }
-
-  save(resource: Endereco) {
-    return resource.id ? this.update(resource.id, resource) : this.insert(resource);
-  }
-
-  insert(resource: Endereco) {
-    this.httpClient.post<Endereco>(`${this.PATH}`, resource)
-      .subscribe(values => console.log(values));
-  }
-
-  update(id: number, resource: Endereco) {
-    return this.httpClient.put<Endereco>(`${this.PATH}/${id}`, resource)
-      .subscribe(values => console.log(values));
-  }
-
-  delete(id: number){
-    return this.httpClient.delete(`${this.PATH}/${id}`)
-      .subscribe(()=>console.log(`ID ${id} successfully deleted`))
-  }
 }
