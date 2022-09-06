@@ -24,7 +24,7 @@ export const navigation = [
     items: [
       {
         text: 'Cursos',
-        path: '/cursos'
+        path: '/curso'
       }
       ]
   },

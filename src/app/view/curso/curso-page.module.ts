@@ -1,20 +1,24 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { CursoPageRoutingModule } from './curso-page-routing.module';
-import { CursoPageComponent } from './curso-page.component';
-import {CursoListComponent} from "./curso-list/curso-list.component";
-import {DxDataGridModule} from "devextreme-angular";
-
+import {NgModule} from '@angular/core';
+import {CursoListComponent} from './curso-list/curso-list.component';
+import {CursoEditComponent} from "./curso-edit/curso-edit.component";
+import {CursoDetailComponent} from './curso-detail/curso-detail.component';
+import {CursoPageRoutingModule} from "./curso-page-routing.module";
+import {CursoPageComponent} from "./curso-page.component";
+import {SharedModule} from '../../@shared/shared.module';
+import {DevExtremeModule} from "devextreme-angular";
 
 @NgModule({
   declarations: [
+    CursoListComponent,
+    CursoEditComponent,
+    CursoDetailComponent,
     CursoPageComponent,
-    CursoListComponent
   ],
   imports: [
-    CommonModule,
     CursoPageRoutingModule,
-    DxDataGridModule
-  ]
+    SharedModule,
+    DevExtremeModule,
+  ],
 })
-export class CursoPageModule { }
+export class CursoPageModule {
+}
