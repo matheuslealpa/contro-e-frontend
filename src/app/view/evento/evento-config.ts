@@ -3,19 +3,19 @@ import {StandardNgConfig} from "../../@core/template/standard-ng-config";
 export const EventoConfig: StandardNgConfig = {
   idAttribute: "id",
   routePath: "/evento",
-  onSuccessDelete: "Exclusão de Evento realizada com sucesso",
+  onSuccessDelete: "Deletado com sucesso",
   confirmDeleteMessage: "Deseja mesmo excluir o Evento?",
   isReadOnly: false,
   listModule: {
-    pageTitle: "Listagem de Evento"
+    pageTitle: "Eventos"
   },
   detailModule: {
-    pageTitle: "Detalhes de Evento"
+    pageTitle: "Detalhes do Evento"
   },
   editModule: {
-    editTitle: "Edição de Evento",
-    createTitle: "Criação de Evento",
-    onSuccessEditMessage: "Evento atualizado com sucesso.",
-    onSuccessCreateMessage: "Evento atualizado com sucesso."
+    editTitle: "Edição",
+    createTitle: "CADASTRAR EVENTO",
+    onSuccessEditMessage: "Atualizado com sucesso.",
+    onSuccessCreateMessage: "Atualizado com sucesso."
   }
 }
