@@ -7,7 +7,7 @@ export const EnderecoConfig: StandardNgConfig = {
   confirmDeleteMessage: "Deseja mesmo excluir o Endereco?",
   isReadOnly: false,
   listModule: {
-    pageTitle: "Enereços"
+    pageTitle: "Endereços"
   },
   detailModule: {
     pageTitle: "Detalhes de Endereco"
