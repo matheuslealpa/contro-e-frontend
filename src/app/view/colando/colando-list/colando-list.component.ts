@@ -7,7 +7,7 @@ import {StandardNgConfig} from "../../../@core/template/standard-ng-config";
 
 class ColandoView {
   id?: number;
-  matricula?: number;
+  matricula?: string;
   nome?: string;
 }
 

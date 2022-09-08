@@ -12,7 +12,7 @@ import {ConvidadoService} from "../../../service/convidado.service";
 
 class ColandoEdit {
     id?: number;
-    matricula?: number;
+    matricula?: string;
     nome?: string;
     curso?: {id:number};
     convidadoIds?: number[];
