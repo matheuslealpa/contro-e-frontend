@@ -1,41 +1,16 @@
 import {Injectable, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Convidado} from "../domain/convidado";
+import {StandardNgService} from "../@core/template/standard-ng-service";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ConvidadoService implements OnInit{
+export class ConvidadoService extends StandardNgService{
 
-  PATH = '/server-api/api/convidado';
-
-  constructor(private httpClient: HttpClient) {
-  }
-
-  ngOnInit(): void {
-  }
-
-  findAll(){
-    this.httpClient.get<Convidado>(`${this.PATH}`)
-      .subscribe(values => values);
-  }
-
-  insert(resource: Convidado) {
-    this.httpClient.post<Convidado>(`${this.PATH}`, resource)
-      .subscribe(values => console.log(values));
-  }
-
-  update(id: number, resource: Convidado) {
-    return this.httpClient.put<Convidado>(`${this.PATH}/${id}`, resource)
-      .subscribe(values => console.log(values));
-  }
-
-  save(resource: Convidado) {
-    return resource.id ? this.update(resource.id, resource) : this.insert(resource);
-  }
-
-  delete(id: number){
-    return this.httpClient.delete(`${this.PATH}/${id}`)
-      .subscribe(()=>console.log(`ID ${id} successfully deleted`))
+  URL_API: string = `${environment.contextPath}/api/convidados`
+  constructor(private httpClient:HttpClient) {
+    super(httpClient)
   }
 }
