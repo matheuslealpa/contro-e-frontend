@@ -49,8 +49,20 @@ const routes: Routes = [
     loadChildren: () => import('./view/evento/evento-page.module').then(m => m.EventoPageModule),
   },
   {
+    path: 'colando',
+    loadChildren: () => import('./view/colando/colando-page.module').then(m => m.ColandoPageModule),
+  },
+  {
     path: 'curso',
     loadChildren: () => import('./view/curso/curso-page.module').then(m => m.CursoPageModule),
+  },
+  {
+    path: 'endereco',
+    loadChildren: () => import('./view/endereco/endereco-page.module').then(m => m.EnderecoPageModule),
+  },
+  {
+    path: 'convidado',
+    loadChildren: () => import('./view/convidado/convidado-page.module').then(m => m.ConvidadoPageModule),
   },
   {
     path: '**',

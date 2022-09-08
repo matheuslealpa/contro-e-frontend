@@ -1,22 +1,18 @@
 export const navigation = [
   {
-    text: 'Evento',
+    text: 'Eventos',
     path: '/evento',
     icon: 'home'
   },
   {
-    text: 'Examples',
-    icon: 'folder',
-    items: [
-      {
-        text: 'Profile',
-        path: '/profile'
-      },
-      {
-        text: 'Tasks',
-        path: '/tasks'
-      }
-    ]
+    text: 'Colandos',
+    path: '/colando',
+    icon: 'user'
+  },
+  {
+    text: 'Convidados',
+    path: '/convidado',
+    icon: 'group'
   },
   {
     text: 'Configuações',
@@ -25,7 +21,11 @@ export const navigation = [
       {
         text: 'Cursos',
         path: '/curso'
+      },
+      {
+        text: 'Endereços',
+        path: '/endereco'
       }
-      ]
+    ]
   },
 ];
