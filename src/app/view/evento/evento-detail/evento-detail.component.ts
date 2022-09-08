@@ -20,8 +20,8 @@ export class EventoDetailComponent extends StandardNgDetailComponent<EventoDetai
 
   constructor(
     injector: Injector,
-    EventoService: EventoService) {
-    super(injector, EventoService);
+    eventoService: EventoService) {
+    super(injector, eventoService);
   }
 
   ngOnInit(): void {

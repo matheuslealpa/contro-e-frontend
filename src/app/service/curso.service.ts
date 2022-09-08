@@ -9,7 +9,7 @@ import {environment} from "../../environments/environment";
 })
 export class CursoService extends StandardNgService{
 
-  URL_API: string = `${environment.contextPath}api/cursos`
+  URL_API: string = `${environment.contextPath}/api/cursos`
   constructor(private httpClient:HttpClient) {
     super(httpClient)
   }

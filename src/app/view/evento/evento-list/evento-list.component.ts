@@ -1,4 +1,3 @@
-
 import {Component, Injector, OnInit, ViewChild} from '@angular/core';
 import {DxDataGridComponent} from 'devextreme-angular/ui/data-grid';
 import {EventoService} from "../../../service/evento.service";
@@ -25,9 +24,9 @@ export class EventoListComponent extends StandardNgListComponent<EventoView, num
 
   constructor(
     injector: Injector,
-    protected EventoService: EventoService,
+    protected eventoService: EventoService,
   ) {
-    super(injector, EventoService);
+    super(injector, eventoService);
   }
 
   ngOnInit(): void {

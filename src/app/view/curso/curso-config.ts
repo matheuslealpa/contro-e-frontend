@@ -3,7 +3,7 @@ import {StandardNgConfig} from "../../@core/template/standard-ng-config";
 export const CursoConfig: StandardNgConfig = {
   idAttribute: "id",
   routePath: "/curso",
-  onSuccessDelete: "Exclusão de Curso realizada com sucesso",
+  onSuccessDelete: "Excluido com sucesso",
   confirmDeleteMessage: "Deseja mesmo excluir o Curso?",
   isReadOnly: false,
   listModule: {

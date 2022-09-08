@@ -8,7 +8,7 @@ providedIn: 'root'
 })
 export class EventoService extends StandardNgService {
 
-    URL_API: string = `${environment.contextPath}api/eventos`
+    URL_API: string = `${environment.contextPath}/api/eventos`
     constructor(httpClient: HttpClient) {
         super(httpClient);
     }
