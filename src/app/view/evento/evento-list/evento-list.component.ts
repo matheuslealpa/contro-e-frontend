@@ -4,18 +4,13 @@ import {EventoService} from "../../../service/evento.service";
 import {StandardNgListComponent} from "../../../@core/template/standard-ng-list-component";
 import {EventoConfig} from "../evento-config";
 import {StandardNgConfig} from "../../../@core/template/standard-ng-config";
-
-class EventoView {
-  id?: number;
-  nomeLocal?: string;
-  dataEvento?: Date;
-}
+import {Evento} from "../../../domain/evento";
 
 @Component({
   selector: 'app-evento-list',
   templateUrl: './evento-list.component.html',
 })
-export class EventoListComponent extends StandardNgListComponent<EventoView, number> implements OnInit {
+export class EventoListComponent extends StandardNgListComponent<Evento, number> implements OnInit {
 
   @ViewChild(DxDataGridComponent, {static: true})
   dataGrid: any;
