@@ -5,7 +5,7 @@ export class AppInfoService {
   constructor() {}
 
   public get title() {
-    return 'Contro E Frontend';
+    return 'CTRL-E';
   }
 
   public get currentYear() {
