@@ -8,8 +8,7 @@ providedIn: 'root'
 })
 export class ColandoService extends StandardNgService {
 
-    URL_API: string = `${environment.contextPath}/api/colando`;
-
+    URL_API: string = `${environment.contextPath}/api/colandos`;
     constructor(httpClient: HttpClient) {
         super(httpClient);
     }
