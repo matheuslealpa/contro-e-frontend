@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  contextPath: '/server-api/control-e/',
+  contextPath: '/server-api/control-e',
 };
 
 /*
