@@ -8,8 +8,7 @@ providedIn: 'root'
 })
 export class EnderecoService extends StandardNgService {
 
-    URL_API: string = `${environment.contextPath}/api/endereco`;
-
+    URL_API: string = `${environment.contextPath}/api/enderecos`;
     constructor(httpClient: HttpClient) {
         super(httpClient);
     }
