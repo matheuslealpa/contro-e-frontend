@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {ConvidadoListComponent} from './convidado-list/convidado-list.component';
-import {ConvidadoEditComponent} from "./convidado-edit/convidado-edit.component";
+import {ConvidadoEditDialogComponent} from "./convidado-edit-dialog/convidado-edit-dialog.component";
 import {ConvidadoDetailComponent} from './convidado-detail/convidado-detail.component';
 import {ConvidadoPageRoutingModule} from "./convidado-page-routing.module";
 import {ConvidadoPageComponent} from "./convidado-page.component";
@@ -10,7 +10,7 @@ import {DevExtremeModule} from "devextreme-angular";
 @NgModule({
   declarations: [
     ConvidadoListComponent,
-    ConvidadoEditComponent,
+    ConvidadoEditDialogComponent,
     ConvidadoDetailComponent,
     ConvidadoPageComponent,
   ],

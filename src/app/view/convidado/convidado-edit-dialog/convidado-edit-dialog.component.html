@@ -1,0 +1,111 @@
+<dx-popup
+  [maxWidth]="400"
+  [height]="280"
+  [title]="title.getTitle()"
+  [(visible)]="visible"
+>
+  <dxi-toolbar-item
+    widget="dxButton"
+    toolbar="bottom"
+    location="after"
+    [options]="closeButtonOptions"
+  >
+  </dxi-toolbar-item>
+  <!-- CONTENT do POPUP !-->
+  <div *dxTemplate="let data of 'content'">
+    <form autocomplete="off" (submit)="save($event)">
+      <dx-form id="form" [formData]="convidado">
+        <!-- nome -->
+        <dxi-item
+          dataField="nome"
+          [editorOptions]="{
+            hint: 'Digite o nome do convidado'
+          }"
+        >
+          <dxo-label text="Convidado"></dxo-label>
+          <dxi-validation-rule type="required"></dxi-validation-rule>
+          <dxi-validation-rule
+            type="stringLength"
+
+          ></dxi-validation-rule>
+          <dxi-validation-rule
+            type="async"
+            message="O nome do convidado já existe."
+            [validationCallback]="notExistsConvidadoByNomeValidation"
+          ></dxi-validation-rule>
+        </dxi-item>
+
+        <!-- SAVE BUTTON !-->
+        <dxi-item
+          itemType="button"
+          [buttonOptions]="{
+            text: 'Salvar',
+            type: 'success',
+            useSubmitBehavior: true,
+            disabled: saveSub && !saveSub.closed
+          }"
+        ></dxi-item>
+      </dx-form>
+    </form>
+  </div>
+</dx-popup>
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="content-block">-->
+<!--  <div class="app-header"-->
+<!--       fxLayout="row"-->
+<!--       fxLayoutAlign="start center">-->
+<!--    <h2>{{ pageTitle }}</h2>-->
+<!--    <dx-button class="app-button-back"-->
+<!--               text="Voltar"-->
+<!--               icon="arrowleft"-->
+<!--               stylingMode="text"-->
+<!--               type="normal"-->
+<!--               (onClick)="back()"></dx-button>-->
+<!--  </div>-->
+<!--  <div class="dx-card responsive-paddings">-->
+<!--    <form autocomplete="off"-->
+<!--          (submit)="doSave($event)">-->
+<!--      <dx-form id="form"-->
+<!--               [formData]="formData"-->
+<!--               requiredMark="<span title='campo obrigatório'>*</span>">-->
+
+
+<!--    <dxi-item dataField="nome">-->
+<!--        <dxo-label text="Nome"></dxo-label>-->
+<!--    </dxi-item>-->
+
+
+<!--        <dxi-item itemType="group"-->
+<!--                  colCount="2"-->
+<!--                  [colCountByScreen]="{ xs: 2 }">-->
+<!--          <dxi-item itemType="button"-->
+<!--                    horizontalAlignment="left"-->
+<!--                    [buttonOptions]="{-->
+<!--                                text: 'Salvar',-->
+<!--                                type: 'success',-->
+<!--                                useSubmitBehavior: true,-->
+<!--                                disabled: saveSub && !saveSub.closed-->
+<!--                              }">-->
+<!--          </dxi-item>-->
+<!--          <dxi-item itemType="button"-->
+<!--                    horizontalAlignment="left"-->
+<!--                    [buttonOptions]="{-->
+<!--                                text: 'Cancelar',-->
+<!--                                onClick: back-->
+<!--                              }">-->
+<!--          </dxi-item>-->
+<!--        </dxi-item>-->
+<!--      </dx-form>-->
+<!--    </form>-->
+<!--  </div>-->
+<!--</div>-->

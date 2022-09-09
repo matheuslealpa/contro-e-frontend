@@ -4,6 +4,7 @@ import {ConvidadoService} from "../../../service/convidado.service";
 import {StandardNgListComponent} from "../../../@core/template/standard-ng-list-component";
 import {ConvidadoConfig} from "../convidado-config";
 import {StandardNgConfig} from "../../../@core/template/standard-ng-config";
+import {ConvidadoEditDialogComponent} from "../convidado-edit-dialog/convidado-edit-dialog.component";
 
 class ConvidadoView {
   id?: number;
@@ -19,6 +20,10 @@ export class ConvidadoListComponent extends StandardNgListComponent<ConvidadoVie
   @ViewChild(DxDataGridComponent, {static: true})
   dataGrid: any;
 
+  @ViewChild('convidadoEditDialogComponent')
+  convidadoEditDialogComponent!: ConvidadoEditDialogComponent;
+
+
   config: StandardNgConfig = ConvidadoConfig;
 
   constructor(
@@ -32,13 +37,25 @@ export class ConvidadoListComponent extends StandardNgListComponent<ConvidadoVie
     this.load()
   }
 
+  onSaveConvidado(event: any) {
+    this.dataSource.reload();
+  }
+
+  override create() {
+    this.convidadoEditDialogComponent.create();
+  }
+
+  override edit(id: number) {
+    this.convidadoEditDialogComponent.edit(id);
+  }
+
   /**
-  * Recebe a informação da coluna e envia status como  Inconsistênte ou Efetivado ou Não Efetivado.
-  * @param cellInfo
-  */
+   * Recebe a informação da coluna e envia status como  Inconsistênte ou Efetivado ou Não Efetivado.
+   * @param cellInfo
+   */
   customizeText(cellInfo: any) {
     return cellInfo.value == true ? 'Sim' : 'Não';
-}
+  }
 
 
 }
