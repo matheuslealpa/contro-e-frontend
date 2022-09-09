@@ -1,7 +1,7 @@
 import {Component, Injector, OnInit} from '@angular/core';
-import {StandardNgDetailComponent} from "../../../@core/template/standard-ng-detail-component";
-import {CursoService} from "../../../service/curso.service";
-import {StandardNgConfig} from "../../../@core/template/standard-ng-config";
+import {StandardNgDetailComponent} from "../../../../@core/template/standard-ng-detail-component";
+import {CursoService} from "../../../../service/curso.service";
+import {StandardNgConfig} from "../../../../@core/template/standard-ng-config";
 import {CursoConfig} from "../curso-config";
 
 class CursoDetail {

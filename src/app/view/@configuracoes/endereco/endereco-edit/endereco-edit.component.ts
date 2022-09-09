@@ -1,11 +1,11 @@
 import {DxFormComponent} from 'devextreme-angular/ui/form';
 import {Component, Injector, OnInit, ViewChild} from '@angular/core';
 
-import {StandardNgEditComponent} from "../../../@core/template/standard-ng-edit-component";
-import {StandardNgConfig} from "../../../@core/template/standard-ng-config";
+import {StandardNgEditComponent} from "../../../../@core/template/standard-ng-edit-component";
+import {StandardNgConfig} from "../../../../@core/template/standard-ng-config";
 
 import {EnderecoConfig} from "../endereco-config";
-import {EnderecoService} from "../../../service/endereco.service";
+import {EnderecoService} from "../../../../service/endereco.service";
 
 class EnderecoEdit {
     id?: number;

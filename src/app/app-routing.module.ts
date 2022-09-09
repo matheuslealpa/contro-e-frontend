@@ -54,11 +54,11 @@ const routes: Routes = [
   },
   {
     path: 'curso',
-    loadChildren: () => import('./view/curso/curso-page.module').then(m => m.CursoPageModule),
+    loadChildren: () => import('./view/@configuracoes/curso/curso-page.module').then(m => m.CursoPageModule),
   },
   {
     path: 'endereco',
-    loadChildren: () => import('./view/endereco/endereco-page.module').then(m => m.EnderecoPageModule),
+    loadChildren: () => import('./view/@configuracoes/endereco/endereco-page.module').then(m => m.EnderecoPageModule),
   },
   {
     path: 'convidado',

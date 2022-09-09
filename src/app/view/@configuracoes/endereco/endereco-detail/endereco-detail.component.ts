@@ -1,7 +1,7 @@
 import {Component, Injector, OnInit} from '@angular/core';
-import {StandardNgDetailComponent} from "../../../@core/template/standard-ng-detail-component";
-import {EnderecoService} from "../../../service/endereco.service";
-import {StandardNgConfig} from "../../../@core/template/standard-ng-config";
+import {StandardNgDetailComponent} from "../../../../@core/template/standard-ng-detail-component";
+import {EnderecoService} from "../../../../service/endereco.service";
+import {StandardNgConfig} from "../../../../@core/template/standard-ng-config";
 import {EnderecoConfig} from "../endereco-config";
 
 class EnderecoDetail {

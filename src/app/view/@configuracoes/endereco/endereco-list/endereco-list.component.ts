@@ -1,9 +1,9 @@
 import {Component, Injector, OnInit, ViewChild} from '@angular/core';
 import {DxDataGridComponent} from 'devextreme-angular/ui/data-grid';
-import {EnderecoService} from "../../../service/endereco.service";
-import {StandardNgListComponent} from "../../../@core/template/standard-ng-list-component";
+import {EnderecoService} from "../../../../service/endereco.service";
+import {StandardNgListComponent} from "../../../../@core/template/standard-ng-list-component";
 import {EnderecoConfig} from "../endereco-config";
-import {StandardNgConfig} from "../../../@core/template/standard-ng-config";
+import {StandardNgConfig} from "../../../../@core/template/standard-ng-config";
 
 class EnderecoView {
   id?: number;

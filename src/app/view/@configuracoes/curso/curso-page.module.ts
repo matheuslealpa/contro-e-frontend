@@ -4,7 +4,7 @@ import {CursoEditComponent} from "./curso-edit/curso-edit.component";
 import {CursoDetailComponent} from './curso-detail/curso-detail.component';
 import {CursoPageRoutingModule} from "./curso-page-routing.module";
 import {CursoPageComponent} from "./curso-page.component";
-import {SharedModule} from '../../@shared/shared.module';
+import {SharedModule} from '../../../@shared/shared.module';
 import {DevExtremeModule} from "devextreme-angular";
 
 @NgModule({

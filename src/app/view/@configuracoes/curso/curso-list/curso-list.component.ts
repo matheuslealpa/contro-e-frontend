@@ -1,9 +1,9 @@
 import {Component, Injector, OnInit, ViewChild} from '@angular/core';
 import {DxDataGridComponent} from 'devextreme-angular/ui/data-grid';
-import {CursoService} from "../../../service/curso.service";
-import {StandardNgListComponent} from "../../../@core/template/standard-ng-list-component";
+import {CursoService} from "../../../../service/curso.service";
+import {StandardNgListComponent} from "../../../../@core/template/standard-ng-list-component";
 import {CursoConfig} from "../curso-config";
-import {StandardNgConfig} from "../../../@core/template/standard-ng-config";
+import {StandardNgConfig} from "../../../../@core/template/standard-ng-config";
 
 class CursoView {
   id?: number;

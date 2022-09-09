@@ -4,7 +4,7 @@ import {EnderecoEditComponent} from "./endereco-edit/endereco-edit.component";
 import {EnderecoDetailComponent} from './endereco-detail/endereco-detail.component';
 import {EnderecoPageRoutingModule} from "./endereco-page-routing.module";
 import {EnderecoPageComponent} from "./endereco-page.component";
-import {SharedModule} from '../../@shared/shared.module';
+import {SharedModule} from '../../../@shared/shared.module';
 import {DevExtremeModule} from "devextreme-angular";
 
 @NgModule({

@@ -1,4 +1,4 @@
-import {StandardNgConfig} from "../../@core/template/standard-ng-config";
+import {StandardNgConfig} from "../../../@core/template/standard-ng-config";
 
 export const CursoConfig: StandardNgConfig = {
   idAttribute: "id",
