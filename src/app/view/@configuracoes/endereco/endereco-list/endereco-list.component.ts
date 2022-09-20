@@ -4,6 +4,8 @@ import {EnderecoService} from "../../../../service/endereco.service";
 import {StandardNgListComponent} from "../../../../@core/template/standard-ng-list-component";
 import {EnderecoConfig} from "../endereco-config";
 import {StandardNgConfig} from "../../../../@core/template/standard-ng-config";
+import {CursoEditDialogComponent} from "../../curso/curso-edit-dialog/curso-edit-dialog.component";
+import {EnderecoEditDialogComponent} from "../endereco-edit-dialog/endereco-edit-dialog.component";
 
 class EnderecoView {
   id?: number;
@@ -24,6 +26,9 @@ export class EnderecoListComponent extends StandardNgListComponent<EnderecoView,
   @ViewChild(DxDataGridComponent, {static: true})
   dataGrid: any;
 
+  @ViewChild('enderecoEditDialogComponent')
+  enderecoEditDialogComponent!: EnderecoEditDialogComponent;
+
   config: StandardNgConfig = EnderecoConfig;
 
   constructor(
@@ -35,6 +40,18 @@ export class EnderecoListComponent extends StandardNgListComponent<EnderecoView,
 
   ngOnInit(): void {
     this.load()
+  }
+
+  onSaveEndereco(event: any) {
+    this.dataSource.reload();
+  }
+
+  override create() {
+    this.enderecoEditDialogComponent.create();
+  }
+
+  override edit(id: number) {
+    this.enderecoEditDialogComponent.edit(id);
   }
 
   /**
