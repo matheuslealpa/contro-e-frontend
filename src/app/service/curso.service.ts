@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Curso} from "../domain/curso";
 import {StandardNgService} from "../@core/template/standard-ng-service";
 import {environment} from "../../environments/environment";
 
@@ -13,5 +12,6 @@ export class CursoService extends StandardNgService{
   constructor(private httpClient:HttpClient) {
     super(httpClient)
   }
+
 }
 

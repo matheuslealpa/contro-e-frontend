@@ -1,5 +1,5 @@
 import {Observable, throwError} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {LoadOptions} from "devextreme/data/load_options";
 import {HttpParamsAdapter} from "../types/http-params-adapter";
 import {Page} from "../types";
@@ -30,11 +30,10 @@ export abstract class StandardNgService {
     return this.http.get<T>(`${this.URL_API}/${id}`);
   }
 
-  public save<T>(resource: T): Observable<T> | undefined {
-    const res: any = resource ;
-    if (res == undefined){}
-    else return res['id'] ? this.update(res['id'], res) : this.insert(res);
-    return undefined;
+  public save<T>(resource: any): Observable<T>{
+    return resource.id
+      ? this.update(resource.id, resource)
+      : this.insert(resource);
   }
 
   public insert<T>(resource: T): Observable<T> {
@@ -52,4 +51,11 @@ export abstract class StandardNgService {
   public delete<ID>(id: ID): Observable<void> {
     return this.http.delete<void>(`${this.URL_API}/${id}`);
   }
+
+  public findByNome<T>(nome: String): Observable<T> {
+    const params = new HttpParams()
+      .set('nome', `${nome}`)
+    return this.http.get<T>(`${this.URL_API}/find-by-nome`, {params: params});
+  }
+
 }

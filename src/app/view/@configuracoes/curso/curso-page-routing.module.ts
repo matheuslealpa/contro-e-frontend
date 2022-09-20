@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from "@angular/router";
 import {CursoListComponent} from './curso-list/curso-list.component';
-import {CursoEditComponent} from "./curso-edit/curso-edit.component";
+import {CursoEditDialogComponent} from "./curso-edit-dialog/curso-edit-dialog.component";
 import {CursoDetailComponent} from './curso-detail/curso-detail.component';
 import {CursoPageComponent} from "./curso-page.component";
 
@@ -11,11 +11,11 @@ const routes: Routes = [
       {path: '', component: CursoListComponent},
       {
         path: 'edit', children: [
-          {path: '', component: CursoEditComponent,},
-          {path: ':id', component: CursoEditComponent,},
+          {path: '', component: CursoEditDialogComponent,},
+          {path: ':id', component: CursoEditDialogComponent,},
         ],
       },
-      {path: ':id', component: CursoDetailComponent,},
+      {path: ':id', component: CursoEditDialogComponent,},
     ],
   },
 ];
