@@ -1,9 +1,9 @@
-import {Evento} from "./evento";
+import {Curso} from "./curso";
 
 export class Colando {
   id?: number;
   matricula?: string;
   nome?: string;
-  curso?:Evento;
+  curso?:Curso;
   convidados?: [];
 }

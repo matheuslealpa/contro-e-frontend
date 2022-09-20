@@ -2,7 +2,7 @@ import {Endereco} from "./endereco";
 import {Colando} from "./colando";
 
 
-export class Evento {
+export class Curso {
   id?: number;
   nomeLocal?: string;
   dataEvento?: string;
