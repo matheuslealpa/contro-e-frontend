@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {EnderecoListComponent} from './endereco-list/endereco-list.component';
-import {EnderecoEditComponent} from "./endereco-edit/endereco-edit.component";
+import {EnderecoEditDialogComponent} from "./endereco-edit-dialog/endereco-edit-dialog.component";
 import {EnderecoDetailComponent} from './endereco-detail/endereco-detail.component';
 import {EnderecoPageRoutingModule} from "./endereco-page-routing.module";
 import {EnderecoPageComponent} from "./endereco-page.component";
@@ -10,7 +10,7 @@ import {DevExtremeModule} from "devextreme-angular";
 @NgModule({
   declarations: [
     EnderecoListComponent,
-    EnderecoEditComponent,
+    EnderecoEditDialogComponent,
     EnderecoDetailComponent,
     EnderecoPageComponent,
   ],

@@ -1,4 +1,3 @@
-
 <div class="app-header"
      fxLayout="row"
      fxLayoutAlign="start center">
@@ -23,6 +22,30 @@
   <dxo-header-filter [visible]="true"></dxo-header-filter>
   <dxo-search-panel [visible]="true"
                     [width]="300"></dxo-search-panel>
+  <!-- BUTTONS -->
+  <dxi-column type="buttons"
+              cellTemplate="buttonsTemplate">
+    <div *dxTemplate="let data of 'buttonsTemplate'"
+         fxLayout="row"
+         fxLayoutAlign="space-between center">
+      <dx-button
+        [visible]="!config.isReadOnly"
+        icon="edit"
+        hint="Editar"
+        (onClick)="edit(data.data.id)">
+      </dx-button>
+      <!--            <dx-button-->
+      <!--                    icon="trash"-->
+      <!--                    hint="Excluir"-->
+      <!--                    (onClick)="confirmDelete(data.data)">-->
+      <!--            </dx-button>-->
+      <dx-button
+        icon="chevronnext"
+        hint="Ver Detalhes"
+        (onClick)="detail(data.data.id)">
+      </dx-button>
+    </div>
+  </dxi-column>
   <!-- COLUMNS -->
       <dxi-column
             dataField="rua"
@@ -66,28 +89,5 @@
             [allowFiltering]="false"
             [allowHeaderFiltering]="false">
     </dxi-column>
-  <!-- BUTTONS -->
-  <dxi-column type="buttons"
-              cellTemplate="buttonsTemplate">
-    <div *dxTemplate="let data of 'buttonsTemplate'"
-         fxLayout="row"
-         fxLayoutAlign="space-between center">
-      <dx-button
-        [visible]="!config.isReadOnly"
-        icon="edit"
-        hint="Editar"
-        (onClick)="edit(data.data.id)">
-      </dx-button>
-      <!--            <dx-button-->
-      <!--                    icon="trash"-->
-      <!--                    hint="Excluir"-->
-      <!--                    (onClick)="confirmDelete(data.data)">-->
-      <!--            </dx-button>-->
-      <dx-button
-        icon="chevronnext"
-        hint="Ver Detalhes"
-        (onClick)="detail(data.data.id)">
-      </dx-button>
-    </div>
-  </dxi-column>
 </dx-data-grid>
+<app-endereco-edit-dialog #enderecoEditDialogComponent (onAfterSave)="onSaveEndereco($event)"></app-endereco-edit-dialog>
