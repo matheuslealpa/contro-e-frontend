@@ -15,7 +15,7 @@ const routes: Routes = [
           {path: ':id', component: CursoEditDialogComponent,},
         ],
       },
-      {path: ':id', component: CursoEditDialogComponent,},
+      {path: ':id', component: CursoDetailComponent,},
     ],
   },
 ];

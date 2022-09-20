@@ -14,7 +14,7 @@ export const CursoConfig: StandardNgConfig = {
   },
   editModule: {
     editTitle: "Editar curso",
-    createTitle: "Cadastar novo curso",
+    createTitle: "Curso",
     onSuccessEditMessage: "Atualizado com sucesso.",
     onSuccessCreateMessage: "Atualizado com sucesso."
   }

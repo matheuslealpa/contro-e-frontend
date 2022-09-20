@@ -23,14 +23,7 @@
   <dxo-header-filter [visible]="true"></dxo-header-filter>
   <dxo-search-panel [visible]="true"
                     [width]="300"></dxo-search-panel>
-  <!-- COLUMNS -->
-      <dxi-column
-            dataField="nome"
-            caption="CURSO"
-            [allowSearch]="true"
-            [allowFiltering]="false"
-            [allowHeaderFiltering]="false">
-    </dxi-column>
+
   <!-- BUTTONS -->
   <dxi-column type="buttons"
               cellTemplate="buttonsTemplate">
@@ -54,6 +47,14 @@
         (onClick)="detail(data.data.id)">
       </dx-button>
     </div>
+  </dxi-column>
+  <!-- COLUMNS -->
+  <dxi-column
+    dataField="nome"
+    caption="Nome do Curso"
+    [allowSearch]="true"
+    [allowFiltering]="false"
+    [allowHeaderFiltering]="false">
   </dxi-column>
 </dx-data-grid>
 <app-curso-edit-dialog #cursoEditDialogComponent (onAfterSave)="onSaveCurso($event)"></app-curso-edit-dialog>
