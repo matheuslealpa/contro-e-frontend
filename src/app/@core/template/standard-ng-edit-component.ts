@@ -8,7 +8,6 @@ import notify from "devextreme/ui/notify";
 import {StandardNgConfig} from "./standard-ng-config";
 import {Injector} from "@angular/core";
 import {StandardNgService} from "./standard-ng-service";
-import {EventoService} from "../../service/evento.service";
 
 export abstract class StandardNgEditComponent<T, ID> {
 

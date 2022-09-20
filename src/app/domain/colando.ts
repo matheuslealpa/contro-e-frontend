@@ -1,4 +1,3 @@
-import {Convidado} from "./convidado";
 import {Evento} from "./evento";
 
 export class Colando {
@@ -6,5 +5,5 @@ export class Colando {
   matricula?: string;
   nome?: string;
   curso?:Evento;
-  convidados?: Convidado[];
+  convidados?: [];
 }

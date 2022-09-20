@@ -61,10 +61,6 @@ const routes: Routes = [
     loadChildren: () => import('./view/@configuracoes/endereco/endereco-page.module').then(m => m.EnderecoPageModule),
   },
   {
-    path: 'convidado',
-    loadChildren: () => import('./view/convidado/convidado-page.module').then(m => m.ConvidadoPageModule),
-  },
-  {
     path: '**',
     redirectTo: 'evento'
   },

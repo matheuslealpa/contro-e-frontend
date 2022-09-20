@@ -10,11 +10,6 @@ export const navigation = [
     icon: 'user'
   },
   {
-    text: 'Convidados',
-    path: '/convidado',
-    icon: 'group'
-  },
-  {
     text: 'Configuações',
     icon: 'preferences',
     items: [
