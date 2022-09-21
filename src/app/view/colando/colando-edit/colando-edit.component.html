@@ -1,4 +1,3 @@
-
 <div class="content-block">
   <div class="app-header"
        fxLayout="row"
@@ -12,34 +11,45 @@
                (onClick)="back()"></dx-button>
   </div>
   <div class="dx-card responsive-paddings">
-    <form autocomplete="off"
-          (submit)="doSave($event)">
+    <form autocomplete="off" (submit)="doSave($event)">
       <dx-form id="form"
                [formData]="formData"
                requiredMark="<span title='campo obrigatório'>*</span>">
-        
-
-    <dxi-item dataField="matricula">
-        <dxo-label text="matricula"></dxo-label>
-    </dxi-item>
-
-
-    <dxi-item dataField="nome">
-        <dxo-label text="nome"></dxo-label>
-    </dxi-item>
-
-
-
-
-    <dxi-item itemType="group"  caption="Informações sobre Curso" colCount="5">
-        <dxi-item
-                colSpan="4"
-                dataField="curso.id"
-                editorType="dxSelectBox"
-                [editorOptions]="cursoDxSelectBoxEditorOptions">
-            <dxo-label text="Curso"></dxo-label>
+        <dxi-item dataField="matricula">
+          <dxo-label text="Matrícula"></dxo-label>
         </dxi-item>
-    </dxi-item>
+        <dxi-item dataField="nome">
+          <dxo-label text="Nome"></dxo-label>
+        </dxi-item>
+        <dxi-item itemType="group" caption="Selecione seu curso" colCount="5">
+          <dxi-item
+            colSpan="4"
+            dataField="curso.id"
+            editorType="dxSelectBox"
+            [editorOptions]="cursoDxSelectBoxEditorOptions">
+            <dxo-label text="Curso"></dxo-label>
+          </dxi-item>
+        </dxi-item>
+        <!--Customize Fields at Runtime-->
+        <dxi-item itemType="group"
+                  caption="Convidados"
+                  name="convidado-container">
+          <dxi-item itemType="group"
+                    name="convidados"
+                    *ngFor="let convidado of convidadoOptions; let i = index">
+            <dxi-item
+              [dataField]="'convidados[' + i + ']'"
+              [editorOptions]="convidadoOptions[i]">
+              <dxo-label [text]="'Convidado ' + (i + 1)"></dxo-label>
+            </dxi-item>
+          </dxi-item>
+        </dxi-item>
+        <dxi-item
+          itemType="button"
+          horizontalAlignment="left"
+          [buttonOptions]="addConvidadoButtonOptions"
+        >
+        </dxi-item>
         <dxi-item itemType="group"
                   colCount="2"
                   [colCountByScreen]="{ xs: 2 }">
