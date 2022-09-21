@@ -13,7 +13,7 @@ export const EnderecoConfig: StandardNgConfig = {
     pageTitle: "Detalhes de Endereco"
   },
   editModule: {
-    editTitle: "Editar endereco",
+    editTitle: "Endereço",
     createTitle: "Cadastrar novo endereço",
     onSuccessEditMessage: "Atualizado com sucesso.",
     onSuccessCreateMessage: "Atualizado com sucesso."
