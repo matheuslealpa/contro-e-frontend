@@ -22,16 +22,17 @@ export class ColandoEditComponent extends StandardNgEditComponent<Colando, numbe
 
   private colando?: Colando;
 
+  convidadoOptions: any[] = [] ;
+
   addConvidadoButtonOptions: any = {
     icon: 'add',
     text: 'adicionar convidado',
-    onClick() {
-      this.colando.convidados.push('');
-      this.convidadoOptions = this.getConvidadoOptions(this.colando.convidados);
+    onClick: () => {
+      let newConvidado: any = this.colando?.convidados;
+      if (newConvidado != undefined) return newConvidado.push('');
+      this.convidadoOptions = this.getConvidadoOptions(newConvidado);
     },
   };
-
-  convidadoOptions: any[] = [];
 
   config: StandardNgConfig = ColandoConfig;
 
@@ -79,8 +80,8 @@ export class ColandoEditComponent extends StandardNgEditComponent<Colando, numbe
           stylingMode: 'text',
           icon: 'trash',
           onClick: () => {
-            let aux: any = this.colando?.convidados;
-            aux.splice(index, 1);
+            let newConvidado: any = this.colando?.convidados;
+            newConvidado.splice(index, 1);
             this.convidadoOptions = this.getConvidadoOptions(this.colando?.convidados);
           },
         },

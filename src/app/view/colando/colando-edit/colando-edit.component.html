@@ -30,10 +30,9 @@
             <dxo-label text="Curso"></dxo-label>
           </dxi-item>
         </dxi-item>
-        <!--Customize Fields at Runtime-->
+        <!--ini Customize Fields at Runtime-->
         <dxi-item itemType="group"
-                  caption="Convidados"
-                  name="convidado-container">
+                  caption="Convidados">
           <dxi-item itemType="group"
                     name="convidados"
                     *ngFor="let convidado of convidadoOptions; let i = index">
@@ -50,6 +49,7 @@
           [buttonOptions]="addConvidadoButtonOptions"
         >
         </dxi-item>
+        <!--fim Customize Fields at Runtime-->
         <dxi-item itemType="group"
                   colCount="2"
                   [colCountByScreen]="{ xs: 2 }">
