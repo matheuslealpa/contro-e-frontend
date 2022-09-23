@@ -4,6 +4,6 @@ export class Colando {
   id?: number;
   matricula?: string;
   nome?: string;
-  curso?: {id:number};
+  curso?: Curso;
   convidados?: string[];
 }

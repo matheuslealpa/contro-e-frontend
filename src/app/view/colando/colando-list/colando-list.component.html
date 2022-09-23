@@ -52,14 +52,22 @@
   <!-- COLUMNS -->
   <dxi-column
     dataField="matricula"
-    caption="matricula"
+    caption="Matrícula"
+    [width]="150"
     [allowSearch]="true"
     [allowFiltering]="false"
     [allowHeaderFiltering]="false">
   </dxi-column>
   <dxi-column
     dataField="nome"
-    caption="nome"
+    caption="Nome"
+    [allowSearch]="true"
+    [allowFiltering]="false"
+    [allowHeaderFiltering]="false">
+  </dxi-column>
+  <dxi-column
+    dataField="curso.nome"
+    caption="Curso"
     [allowSearch]="true"
     [allowFiltering]="false"
     [allowHeaderFiltering]="false">
