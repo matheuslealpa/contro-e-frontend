@@ -3,18 +3,18 @@ import {StandardNgConfig} from "../../@core/template/standard-ng-config";
 export const ColandoConfig: StandardNgConfig = {
   idAttribute: "id",
   routePath: "/colando",
-  onSuccessDelete: "Exclusão de Colando realizada com sucesso",
-  confirmDeleteMessage: "Deseja mesmo excluir o Colando?",
+  onSuccessDelete: "Exclusão realizada com sucesso",
+  confirmDeleteMessage: "Deseja mesmo excluir o colando?",
   isReadOnly: false,
   listModule: {
-    pageTitle: "Listagem de Colando"
+    pageTitle: "Colandos"
   },
   detailModule: {
-    pageTitle: "Detalhes de Colando"
+    pageTitle: "Detalhes"
   },
   editModule: {
-    editTitle: "Edição de Colando",
-    createTitle: "Criação de Colando",
+    editTitle: "Editar Colando",
+    createTitle: "Cadastrar novo colando",
     onSuccessEditMessage: "Colando atualizado com sucesso.",
     onSuccessCreateMessage: "Colando atualizado com sucesso."
   }
