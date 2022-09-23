@@ -23,7 +23,7 @@ export abstract class StandardNgEditComponent<T, ID> {
 
   private title: Title;
 
-  private activatedRoute: ActivatedRoute;
+  activatedRoute: ActivatedRoute;
 
   private router: Router;
 
@@ -53,7 +53,7 @@ export abstract class StandardNgEditComponent<T, ID> {
   }
 
 
-  private edit(id: ID) {
+  public edit(id: ID) {
     this.findById(id)
       .pipe(take(1))
       .subscribe(resource => this.formData = resource);
