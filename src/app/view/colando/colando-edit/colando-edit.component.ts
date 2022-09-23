@@ -9,9 +9,10 @@ import {ColandoConfig} from "../colando-config";
 import {ColandoService} from "../../../service/colando.service";
 import {CursoService} from "../../../service/curso.service";
 import {Colando} from "../../../domain/colando";
+import {take} from "rxjs/operators";
 
 @Component({
-  selector: 'app-colando-edit',
+  selector: 'app-formData-edit',
   templateUrl: './colando-edit.component.html',
   styles: [],
 })
@@ -20,17 +21,17 @@ export class ColandoEditComponent extends StandardNgEditComponent<Colando, numbe
   @ViewChild(DxFormComponent, {static: true})
   form: any
 
-  private colando?: Colando;
-
   convidadoOptions: any[] = [] ;
 
   addConvidadoButtonOptions: any = {
     icon: 'add',
     text: 'adicionar convidado',
     onClick: () => {
-      let newConvidado: any = this.colando?.convidados;
-      if (newConvidado != undefined) return newConvidado.push('');
-      this.convidadoOptions = this.getConvidadoOptions(newConvidado);
+      if (this.formData.convidados == undefined) {
+        this.formData.convidados = [];
+      }
+      this.formData.convidados.push(null);
+      this.convidadoOptions = this.getConvidadoOptions(this.formData.convidados);
     },
   };
 
@@ -63,9 +64,18 @@ export class ColandoEditComponent extends StandardNgEditComponent<Colando, numbe
     this.load(Colando);
   }
 
-  getConvidadoOptions(convidados: any) {
+  override edit(id: number) {
+    this.findById(id)
+      .pipe(take(1))
+      .subscribe(resource => {
+        this.formData = resource;
+        this.convidadoOptions = this.getConvidadoOptions(this.formData.convidados);
+      });
+  }
+
+  getConvidadoOptions(convidados: any[]) {
     const options = [];
-    for (let i = 0; i < convidados.length; i++) {
+    for (let i = 0; i < convidados?.length; i++) {
       options.push(this.generateNewConvidadoOptions(i));
     }
     return options;
@@ -80,9 +90,8 @@ export class ColandoEditComponent extends StandardNgEditComponent<Colando, numbe
           stylingMode: 'text',
           icon: 'trash',
           onClick: () => {
-            let newConvidado: any = this.colando?.convidados;
-            newConvidado.splice(index, 1);
-            this.convidadoOptions = this.getConvidadoOptions(this.colando?.convidados);
+            this.formData?.convidados.splice(index, 1);
+            this.convidadoOptions = this.getConvidadoOptions(this.formData?.convidados);
           },
         },
       }],
