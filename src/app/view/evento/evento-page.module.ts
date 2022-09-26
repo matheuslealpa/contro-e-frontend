@@ -5,7 +5,7 @@ import {EventoDetailComponent} from './evento-detail/evento-detail.component';
 import {EventoPageRoutingModule} from "./evento-page-routing.module";
 import {EventoPageComponent} from "./evento-page.component";
 import {SharedModule} from '../../@shared/shared.module';
-import {DxLoadIndicatorModule} from "devextreme-angular";
+import {DevExtremeModule, DxLoadIndicatorModule} from "devextreme-angular";
 
 @NgModule({
   declarations: [
@@ -14,11 +14,12 @@ import {DxLoadIndicatorModule} from "devextreme-angular";
     EventoDetailComponent,
     EventoPageComponent,
   ],
-  imports: [
-    EventoPageRoutingModule,
-    SharedModule,
-    DxLoadIndicatorModule,
-  ],
+    imports: [
+        EventoPageRoutingModule,
+        SharedModule,
+        DxLoadIndicatorModule,
+        DevExtremeModule,
+    ],
 })
 export class EventoPageModule {
 }

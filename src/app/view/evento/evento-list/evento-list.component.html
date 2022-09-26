@@ -1,9 +1,8 @@
-
-<div class="app-header"
-     fxLayout="row"
-     fxLayoutAlign="start center">
-  <h2>{{ pageTitle }} ({{ totalResources }})</h2>
-</div>
+<dx-toolbar>
+  <dxi-item location="before" style="margin-left: 10px">
+    <h2>{{ pageTitle }} ({{ totalResources }})</h2>
+  </dxi-item>
+</dx-toolbar>
 <dx-data-grid
   [dataSource]="dataSource"
   [allowColumnReordering]="true"
