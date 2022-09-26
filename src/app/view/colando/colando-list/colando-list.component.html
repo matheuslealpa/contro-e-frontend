@@ -1,3 +1,8 @@
+<dx-toolbar>
+  <dxi-item location="before" style="margin-left: 10px">
+    <h2>{{ pageTitle }} ({{ totalResources }})</h2>
+  </dxi-item>
+</dx-toolbar>
 <dx-data-grid
   [dataSource]="dataSource"
   [allowColumnReordering]="true"
@@ -17,14 +22,6 @@
   <dxo-header-filter [visible]="true"></dxo-header-filter>
   <dxo-search-panel [visible]="true"
                     [width]="300"></dxo-search-panel>
-  <!-- TITLE PAGE -->
-  <dxo-toolbar>
-    <dxi-item location="right">
-      <div *dxTemplate>
-        <h2>{{ pageTitle }} ({{ totalResources }})</h2>
-      </div>
-    </dxi-item>
-  </dxo-toolbar>
   <!-- BUTTONS -->
   <dxi-column type="buttons"
               cellTemplate="buttonsTemplate">
