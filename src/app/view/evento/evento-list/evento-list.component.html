@@ -22,20 +22,6 @@
   <dxo-header-filter [visible]="true"></dxo-header-filter>
   <dxo-search-panel [visible]="true"
                     [width]="300"></dxo-search-panel>
-  <!-- COLUMNS -->
-      <dxi-column
-            dataField="nomeLocal"
-            caption="Nome do Local"
-            [allowSearch]="true"
-            [allowFiltering]="false"
-            [allowHeaderFiltering]="false">
-    </dxi-column>
-    <dxi-column
-            dataField="dataEvento"
-            caption="data do Evento"
-            dataType="datetime"
-            format="dd/MM/yyyy HH:ss">
-    </dxi-column>
   <!-- BUTTONS -->
   <dxi-column type="buttons"
               cellTemplate="buttonsTemplate">
@@ -59,5 +45,26 @@
         (onClick)="detail(data.data.id)">
       </dx-button>
     </div>
+  </dxi-column>
+  <!-- COLUMNS -->
+  <dxi-column
+    dataField="nomeLocal"
+    caption="Nome do Local"
+    [allowSearch]="true"
+    [allowFiltering]="false"
+    [allowHeaderFiltering]="false">
+  </dxi-column>
+  <dxi-column
+    dataField="dataEvento"
+    caption="Data e hora do evento"
+    dataType="datetime"
+    format="dd/MM/yyyy HH:ss">
+  </dxi-column>
+  <dxi-column
+    dataField="endereco.label"
+    caption="Endereço"
+    [allowSearch]="false"
+    [allowFiltering]="false"
+    [allowHeaderFiltering]="false">
   </dxi-column>
 </dx-data-grid>
