@@ -9,54 +9,50 @@ import {EventoConfig} from "../evento-config";
 import {EventoService} from "../../../service/evento.service";
 import {EnderecoService} from "../../../service/endereco.service";
 import {ColandoService} from "../../../service/colando.service";
-
-class EventoEdit {
-    id?: number;
-    nomeLocal?: string;
-    dataEvento?: Date;
-    endereco?: {id:number};
-    colandoIds?: number[] | undefined;
-}
+import {Evento} from "../../../domain/evento";
+import {Colando} from "../../../domain/colando";
+import {take} from "rxjs/operators";
 
 @Component({
   selector: 'app-evento-edit',
   templateUrl: './evento-edit.component.html',
   styles: [],
 })
-export class EventoEditComponent extends StandardNgEditComponent<EventoEdit, number> implements OnInit {
+export class EventoEditComponent extends StandardNgEditComponent<Evento, number> implements OnInit {
 
   @ViewChild(DxFormComponent, {static: true})
   form: any
 
   config: StandardNgConfig = EventoConfig;
 
-   enderecoDxSelectBoxEditorOptions = {
-       valueExpr: 'id',
-       displayExpr: 'rua',
-       searchEnabled: true,
-       searchExpr: 'rua',
-       dataSource: new DataSource({
-           store: new CustomStore({
-               key: 'id',
-               byKey: (key: number) => this.enderecoService.findById(key).toPromise(),
-               load: (options: LoadOptions) => this.enderecoService.findAll(options).toPromise()
-           }),
-           sort: [{selector: 'rua', desc: false}],
-       })
-   };
-  /**
-  * Variável de id's referente a material.
-  */
- colandoSelectedItemKeys: number[] = [];
-  /**
-  * DataSource que faz a busca de todos ou um objeto(Material) usando laodOptions.
-  */
- colandoDataSource: DataSource = new DataSource({
+  enderecoDxSelectBoxEditorOptions = {
+    valueExpr: 'id',
+    displayExpr: 'label',
+    searchEnabled: true,
+    searchExpr: 'rua',
+    dataSource: new DataSource({
       store: new CustomStore({
-          key: 'id',
-          byKey: (key: number) => this.colandoService.findById(key).toPromise(),
-          load: options => this.colandoService.findAll(options).toPromise()
-      })
+        key: 'id',
+        byKey: (key: number) => this.enderecoService.findById(key).toPromise(),
+        load: (options: LoadOptions) => this.enderecoService.findAll(options).toPromise()
+      }),
+      sort: [{selector: 'rua', desc: false}],
+    })
+  };
+
+  colando: Colando[] | undefined = []
+
+  colandoSelectedItemKeys: any = [];
+
+  /**
+   * DataSource que faz a busca de todos ou um objeto usando laodOptions.
+   */
+  colandoDataSource: DataSource = new DataSource({
+    store: new CustomStore({
+      key: 'id',
+      byKey: (key: number) => this.colandoService.findById(key).toPromise(),
+      load: options => this.colandoService.findAll(options).toPromise()
+    })
   });
 
   constructor(
@@ -66,20 +62,38 @@ export class EventoEditComponent extends StandardNgEditComponent<EventoEdit, num
     private colandoService: ColandoService,
   ) {
     super(injector, eventoService);
-    this.load(EventoEdit);
   }
 
   ngOnInit() {
-    //this.load(EventoEdit);
+    this.load(Evento);
+  }
+
+  override edit(id: number) {
+    this.findById(id)
+      .pipe(take(1))
+      .subscribe(resource => {
+        this.formData = resource;
+        this.colandoSelectedItemKeys = resource.colandos?.map(colando => colando.id)
+        this.colando = resource.colandos;
+
+      });
   }
 
   /**
-  * Método de atualização de valores no dropDown
-  */
-  onSelectionChangedColando() {
-    const formData: any = this.formData;
-    if (formData == undefined){}
-    // else this.formData. = this.colandoSelectedItemKeys;
+   * Método de atualização de valores no dropDown
+   */
+  onSelectionChangedColando(e: { addedItems: any[], removedItems: any[] }) {
+    const colandos: Colando[] = this.formData.colandos;
+    if (e.removedItems.length > 0)
+      colandos.splice(colandos.findIndex((colando: Colando) => colando.id === e.removedItems[0].id), 1)
+    else {
+      if (e.addedItems.length == 1) {
+       const index = colandos.findIndex((colando: Colando) => colando.id === e.addedItems[0].id);
+       if (index == -1) colandos.push(e.addedItems[0]);
+      } else this.formData.colandos;
+    }
+    this.colandoSelectedItemKeys = colandos.map(colando => colando.id)
+    this.formData.colandos = colandos
   }
 
 }
