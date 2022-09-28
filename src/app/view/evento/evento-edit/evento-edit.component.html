@@ -1,4 +1,3 @@
-
 <div class="content-block">
   <div class="app-header"
        fxLayout="row"
@@ -17,60 +16,54 @@
       <dx-form id="form"
                [formData]="formData"
                requiredMark="<span title='campo obrigatório'>*</span>">
-
-
-    <dxi-item dataField="nomeLocal">
-        <dxo-label text="nomeLocal"></dxo-label>
-    </dxi-item>
-
-
-    <dxi-item
-            [editorOptions]="{
+        <dxi-item dataField="nomeLocal">
+          <dxo-label text="Nome do local"></dxo-label>
+        </dxi-item>
+        <dxi-item
+          [editorOptions]="{
                       displayFormat: 'dd/MM/yyyy HH:ss',
                       value: null
                      }"
-            dataField="dataEvento"
-            editorType="dxDateBox">
-        <dxo-label text="dataEvento"></dxo-label>
-    </dxi-item>
-
-
-    <dxi-item itemType="group"  caption="Informações sobre Endereco" colCount="5">
-        <dxi-item
-                colSpan="4"
-                dataField="endereco.id"
-                editorType="dxSelectBox"
-                [editorOptions]="enderecoDxSelectBoxEditorOptions">
-            <dxo-label text="Endereco"></dxo-label>
+          dataField="dataEvento"
+          editorType="dxDateBox">
+          <dxo-label text="Data e hora do evento"></dxo-label>
         </dxi-item>
-    </dxi-item>
-    <dxi-item itemType="group" caption="Informações do Colando" colCount="6">
-        <dxi-item [colSpan]="6">
+        <dxi-item itemType="group" caption="Endereço" colCount="5">
+          <dxi-item
+            colSpan="4"
+            dataField="endereco.id"
+            editorType="dxSelectBox"
+            [editorOptions]="enderecoDxSelectBoxEditorOptions">
+            <dxo-label text="Endereco"></dxo-label>
+          </dxi-item>
+        </dxi-item>
+        <dxi-item itemType="group" caption="Colando" colCount="6">
+          <dxi-item [colSpan]="6">
             <dxo-label text="Colando"></dxo-label>
             <div *dxTemplate>
-                <dx-drop-down-box [(value)]="formData.colandoIds"
-                                  valueExpr="id"
-                                  displayExpr="matricula"
-                                  placeholder="Selecione o matricula..."
-                                  [showClearButton]="true"
-                                  [dataSource]="colandoDataSource">
-                    <div *dxTemplate="let data of 'content'">
-                        <dx-list keyExpr="id"
-                                 displayExpr="matricula"
-                                 selectionMode="multiple"
-                                 [searchEnabled]="true"
-                                 searchMode="contains"
-                                 [searchExpr]="['matricula']"
-                                 [(selectedItemKeys)]="colandoSelectedItemKeys"
-                                 [showSelectionControls]="true"
-                                 [dataSource]="colandoDataSource"
-                                 (onSelectionChanged)="onSelectionChangedColando()">
-                        </dx-list>
-                    </div>
-                </dx-drop-down-box>
+              <dx-drop-down-box [(value)]="colandoSelectedItemKeys"
+                                valueExpr="id"
+                                displayExpr="matricula"
+                                placeholder="Selecione a matricula..."
+                                [showClearButton]="true"
+                                [dataSource]="colandoDataSource">
+                <div *dxTemplate="let data of 'content'">
+                  <dx-list keyExpr="id"
+                           displayExpr="matricula"
+                           selectionMode="multiple"
+                           [searchEnabled]="true"
+                           searchMode="contains"
+                           [searchExpr]="['matricula']"
+                           [(selectedItemKeys)]="colandoSelectedItemKeys"
+                           [showSelectionControls]="true"
+                           [dataSource]="colandoDataSource"
+                           (onSelectionChanged)="onSelectionChangedColando($event)">
+                  </dx-list>
+                </div>
+              </dx-drop-down-box>
             </div>
+          </dxi-item>
         </dxi-item>
-    </dxi-item>
         <dxi-item itemType="group"
                   colCount="2"
                   [colCountByScreen]="{ xs: 2 }">
