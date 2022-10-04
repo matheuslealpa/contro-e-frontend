@@ -6,6 +6,7 @@ import {EventoPageRoutingModule} from "./evento-page-routing.module";
 import {EventoPageComponent} from "./evento-page.component";
 import {SharedModule} from '../../@shared/shared.module';
 import {DevExtremeModule, DxLoadIndicatorModule} from "devextreme-angular";
+import { EventoGridComponent } from './evento-grid/evento-grid.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import {DevExtremeModule, DxLoadIndicatorModule} from "devextreme-angular";
     EventoEditComponent,
     EventoDetailComponent,
     EventoPageComponent,
+    EventoGridComponent,
   ],
     imports: [
         EventoPageRoutingModule,

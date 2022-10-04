@@ -67,4 +67,9 @@
     [allowFiltering]="false"
     [allowHeaderFiltering]="false">
   </dxi-column>
+  <dxo-master-detail [enabled]="true" template="detail"></dxo-master-detail>
+  <div *dxTemplate="let evento of 'detail'">
+    <app-detail-grid [key]="evento.key"></app-detail-grid>
+  </div>
+
 </dx-data-grid>

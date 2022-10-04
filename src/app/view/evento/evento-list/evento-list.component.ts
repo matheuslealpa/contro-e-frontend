@@ -15,6 +15,8 @@ export class EventoListComponent extends StandardNgListComponent<Evento, number>
   @ViewChild(DxDataGridComponent, {static: true})
   dataGrid: any;
 
+  evento?: Evento[];
+
   config: StandardNgConfig = EventoConfig;
 
   constructor(
@@ -28,10 +30,6 @@ export class EventoListComponent extends StandardNgListComponent<Evento, number>
     this.load()
   }
 
-  /**
-  * Recebe a informação da coluna e envia status como  Inconsistênte ou Efetivado ou Não Efetivado.
-  * @param cellInfo
-  */
   customizeText(cellInfo: any) {
     return cellInfo.value == true ? 'Sim' : 'Não';
 }
