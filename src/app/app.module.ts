@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { SideNavOuterToolbarModule, SideNavInnerToolbarModule, SingleCardModule } from './layouts';
@@ -7,12 +7,13 @@ import { AuthService, ScreenService, AppInfoService } from './shared/services';
 import { UnauthenticatedContentModule } from './unauthenticated-content';
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from "@angular/common/http";
+import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
+import {securityInitFn} from "./@core/security/security-init-fn";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -26,12 +27,20 @@ import {HttpClientModule} from "@angular/common/http";
     ChangePasswordFormModule,
     LoginFormModule,
     UnauthenticatedContentModule,
-    AppRoutingModule
+    AppRoutingModule,
+    KeycloakAngularModule
   ],
   providers: [
     AuthService,
     ScreenService,
-    AppInfoService
+    AppInfoService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: securityInitFn,
+      multi: true,
+      deps: [KeycloakService]
+    }
+
   ],
   bootstrap: [AppComponent]
 })

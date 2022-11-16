@@ -5,6 +5,14 @@
 export const environment = {
   production: false,
   contextPath: '/server-api/control-e',
+  urlbase: '/server-api/control-e/api',
+  keycloak: {
+    authServerUrl: 'http://localhost:8085/auth',
+    resource: 'control-e-frontend',
+    realm: 'CONTROL-E'
+  }
+
+
 };
 
 /*
