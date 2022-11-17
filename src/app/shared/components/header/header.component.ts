@@ -1,12 +1,12 @@
 import { Component, NgModule, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AuthService, IUser } from '../../services';
 import { UserPanelModule } from '../user-panel/user-panel.component';
 import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
 
 import { Router } from '@angular/router';
+import {KeycloakService} from "keycloak-angular";
 @Component({
   selector: 'app-header',
   templateUrl: 'header.component.html',
@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
   @Input()
   title!: string;
 
-  user: IUser | null = { email: '' };
+  user: any = { email: '' };
 
   userMenuItems = [{
     text: 'Profile',
@@ -36,14 +36,18 @@ export class HeaderComponent implements OnInit {
     text: 'Logout',
     icon: 'runner',
     onClick: () => {
-      this.authService.logOut();
+      this.keycloakService.logout();
     }
   }];
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private router: Router, private keycloakService: KeycloakService) {
+    keycloakService.loadUserProfile().then(profile => {
+      this.user.email = profile.email
+    });
+  }
 
   ngOnInit() {
-    this.authService.getUser().then((e) => this.user = e.data);
+
   }
 
   toggleMenu = () => {
